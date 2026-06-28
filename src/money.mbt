@@ -28,3 +28,10 @@ pub fn Money::add(self : Money, other : Money) -> Money {
   }
   { amount: self.amount + other.amount, currency: self.currency }
 }
+
+pub fn Money::sub(self : Money, other : Money) -> Money {
+  if self.currency.code != other.currency.code {
+    abort("Currency mismatch")
+  }
+  { amount: self.amount - other.amount, currency: self.currency }
+}
