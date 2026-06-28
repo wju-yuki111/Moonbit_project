@@ -57,3 +57,9 @@ pub fn Money::allocate(self : Money, ratios : Array[Int]) -> Array[Money] {
   }
   results
 }
+
+pub impl Show for Money with output(self, logger) {
+  logger.write_string(self.currency.code)
+  logger.write_string(" ")
+  logger.write_string(self.amount.to_string())
+}
