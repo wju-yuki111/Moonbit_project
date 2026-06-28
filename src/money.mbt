@@ -35,3 +35,7 @@ pub fn Money::sub(self : Money, other : Money) -> Money {
   }
   { amount: self.amount - other.amount, currency: self.currency }
 }
+
+pub fn Money::mul(self : Money, multiplier : Int64) -> Money {
+  { amount: self.amount * multiplier, currency: self.currency }
+}
