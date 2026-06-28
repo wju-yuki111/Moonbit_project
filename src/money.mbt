@@ -21,3 +21,10 @@ pub impl Compare for Money with compare(self, other) {
   }
   self.amount.compare(other.amount)
 }
+
+pub fn Money::add(self : Money, other : Money) -> Money {
+  if self.currency.code != other.currency.code {
+    abort("Currency mismatch")
+  }
+  { amount: self.amount + other.amount, currency: self.currency }
+}
