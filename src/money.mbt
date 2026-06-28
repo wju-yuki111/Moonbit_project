@@ -39,3 +39,21 @@ pub fn Money::sub(self : Money, other : Money) -> Money {
 pub fn Money::mul(self : Money, multiplier : Int64) -> Money {
   { amount: self.amount * multiplier, currency: self.currency }
 }
+
+pub fn Money::allocate(self : Money, ratios : Array[Int]) -> Array[Money] {
+  let mut total_ratio = 0L
+  for ratio in ratios {
+    total_ratio = total_ratio + ratio.to_int64()
+  }
+  let mut remainder = self.amount
+  let results = []
+  for ratio in ratios {
+    let share = self.amount * ratio.to_int64() / total_ratio
+    results.push({ amount: share, currency: self.currency })
+    remainder = remainder - share
+  }
+  for i = 0; i < remainder.to_int(); i = i + 1 {
+    results[i].amount = results[i].amount + 1L
+  }
+  results
+}
