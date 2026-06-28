@@ -14,3 +14,10 @@ pub fn Money::from_int(amount : Int, currency : Currency) -> Money {
 pub impl Eq for Money with op_equal(self, other) {
   self.amount == other.amount && self.currency.code == other.currency.code
 }
+
+pub impl Compare for Money with compare(self, other) {
+  if self.currency.code != other.currency.code {
+    abort("Cannot compare money of different currencies")
+  }
+  self.amount.compare(other.amount)
+}
