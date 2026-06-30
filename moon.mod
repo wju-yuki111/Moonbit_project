@@ -1,0 +1,9 @@
+name = "wju-yuki111/moon-money"
+
+version = "0.1.0"
+
+description = "A safe, high-precision currency and money manipulation library for MoonBit, preventing floating point rounding errors."
+
+repository = "https://github.com/wju-yuki111/Moonbit_project"
+
+license = "MIT"
