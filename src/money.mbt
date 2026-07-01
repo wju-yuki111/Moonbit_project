@@ -2,10 +2,10 @@
 /// Money represents a safe financial value bounded to a specific Currency.
 /// It strictly uses `Int64` for internal representation to eliminate
 /// floating-point calculation issues.
-pub struct Money {
+pub(all) struct Money {
   amount : Int64
   currency : Currency
-} derive(Eq, Compare)
+} derive(Eq, Compare, Debug)
 
 ///|
 /// Creates a new Money instance from an Int64 amount and a Currency.
